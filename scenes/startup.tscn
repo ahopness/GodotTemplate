@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/thMenu.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/startup/scrStartup.gd" type="Script" id=2]
+[ext_resource path="res://scenes/startup/sfxClick.wav" type="AudioStream" id=3]
+
+[node name="startup" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="vbcon" type="VBoxContainer" parent="."]
+margin_left = 161.0
+margin_top = 130.0
+margin_right = 351.0
+margin_bottom = 170.0
+
+[node name="txtTitle" type="Label" parent="vbcon"]
+margin_right = 190.0
+margin_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Warning:"
+align = 1
+
+[node name="txtInfo" type="Label" parent="vbcon"]
+margin_top = 12.0
+margin_right = 190.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Insert warning here (or not)"
+align = 1
+
+[node name="hsep" type="HSeparator" parent="vbcon"]
+margin_top = 24.0
+margin_right = 190.0
+margin_bottom = 28.0
+
+[node name="btnProceed" type="Button" parent="vbcon"]
+margin_top = 32.0
+margin_right = 190.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+text = "Proceed"
+
+[node name="sfxClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sfx"
+
+[connection signal="pressed" from="vbcon/btnProceed" to="." method="_on_btnProceed_pressed"]

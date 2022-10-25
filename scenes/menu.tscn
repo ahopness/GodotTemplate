@@ -1,0 +1,303 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://themes/thMenu.tres" type="Theme" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/menu/scrMenu.gd" type="Script" id=3]
+[ext_resource path="res://scenes/menu/sfxStart.wav" type="AudioStream" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "anmInit"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("btnStart:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("btnStart:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("texLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("txtVersion:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("actions:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "anmStart"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("texLogo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("btnStart:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("btnStart:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("actions:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("actions:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("txtVersion:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="texLogo" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -58.5
+margin_right = 58.5
+margin_bottom = 58.5
+texture = ExtResource( 2 )
+expand = true
+
+[node name="btnStart" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -74.0
+margin_top = -86.0
+margin_right = 74.0
+margin_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+text = "Click here to start..."
+
+[node name="actions" type="VBoxContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.0
+margin_top = -44.0
+margin_right = 93.0
+margin_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 6
+alignment = 1
+
+[node name="btnPlay" type="Button" parent="actions"]
+margin_top = 26.0
+margin_right = 186.0
+margin_bottom = 34.0
+mouse_default_cursor_shape = 2
+text = "Play"
+
+[node name="btnSettings" type="Button" parent="actions"]
+margin_top = 40.0
+margin_right = 186.0
+margin_bottom = 48.0
+mouse_default_cursor_shape = 2
+text = "Settings"
+
+[node name="btnCredits" type="Button" parent="actions"]
+margin_top = 40.0
+margin_right = 186.0
+margin_bottom = 48.0
+mouse_default_cursor_shape = 2
+text = "Credits"
+
+[node name="btnMore" type="Button" parent="actions"]
+margin_top = 40.0
+margin_right = 186.0
+margin_bottom = 48.0
+mouse_default_cursor_shape = 2
+text = "More Games"
+
+[node name="btnExit" type="Button" parent="actions"]
+margin_top = 54.0
+margin_right = 186.0
+margin_bottom = 62.0
+mouse_default_cursor_shape = 2
+text = "Exit to OS"
+
+[node name="txtVersion" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.3 )
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -81.0
+margin_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource( 1 )
+text = "v1.0.desktop"
+align = 2
+valign = 2
+
+[node name="credits" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="crBG" type="ColorRect" parent="credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="centercon" type="CenterContainer" parent="credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="vbcon" type="VBoxContainer" parent="credits/centercon"]
+margin_left = 208.0
+margin_top = 130.0
+margin_right = 303.0
+margin_bottom = 169.0
+
+[node name="txt" type="Label" parent="credits/centercon/vbcon"]
+margin_right = 95.0
+margin_bottom = 19.0
+text = "Game Template:
+@ahopness"
+
+[node name="hsep" type="HSeparator" parent="credits/centercon/vbcon"]
+margin_top = 23.0
+margin_right = 95.0
+margin_bottom = 27.0
+
+[node name="btnCreditsBack" type="Button" parent="credits/centercon/vbcon"]
+margin_top = 31.0
+margin_right = 95.0
+margin_bottom = 39.0
+mouse_default_cursor_shape = 2
+text = "Go Back"
+align = 0
+
+[node name="anm" type="AnimationPlayer" parent="."]
+autoplay = "anmInit"
+anims/anmInit = SubResource( 1 )
+anims/anmStart = SubResource( 2 )
+
+[node name="sfxStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="sfxClick" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="btnStart" to="." method="_on_btnStart_pressed"]
+[connection signal="pressed" from="actions/btnPlay" to="." method="_on_btnPlay_pressed"]
+[connection signal="pressed" from="actions/btnSettings" to="." method="_on_btnSettings_pressed"]
+[connection signal="pressed" from="actions/btnCredits" to="." method="_on_btnCredits_pressed"]
+[connection signal="pressed" from="actions/btnMore" to="." method="_on_btnMore_pressed"]
+[connection signal="pressed" from="actions/btnExit" to="." method="_on_btnExit_pressed"]
+[connection signal="pressed" from="credits/centercon/vbcon/btnCreditsBack" to="." method="_on_btnCreditsBack_pressed"]
+[connection signal="animation_finished" from="anm" to="." method="_on_anm_animation_finished"]
