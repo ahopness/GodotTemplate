@@ -21,7 +21,7 @@
 
 ## About
 
-**Godot Template** is a simple & efficient template project for Godot made using design & programming decisions to speed up the initial development process.
+**Godot Template** is a simple & efficient template project for Godot made using design & programming decisions to speed up the initial development process. Color pallete used: [BLUE SEED 7 PALETTE](https://lospec.com/palette-list/ty-blue-seed-7)
 
 It Features:
 - Menu scene
