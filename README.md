@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/license-CC0-404040?style=flat-square" align="center"></img>
     <img src="https://img.shields.io/github/stars/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
     <img src="https://img.shields.io/github/forks/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
-    <img src="https://img.shields.io/badge/version-1.0-404040?style=flat-square" align="center"></img>
+    <img src="https://img.shields.io/badge/version-2.0-404040?style=flat-square" align="center"></img>
     <img src="https://img.shields.io/github/repo-size/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
     <img src="https://img.shields.io/github/last-commit/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
     <img src="https://img.shields.io/badge/Twitter-Ahopness-404040?style=flat-square" align="center"></img>
@@ -25,17 +25,17 @@
 
 It Features:
 - Menu scene
-- Startup Scene
+- Startup Scene (WITH SHADER COMPILER!!)
 - Pause menu
 - Debug inpector (press apostrophe)
 - Post-Processing structure
 - Manager with scene transitioning built-in
+- Settings tab using the ConfigFile class for saving
 
 
 ## Screenshots
 
 <div align="center">
-   <img src="https://user-images.githubusercontent.com/56614267/197662706-474c7c4a-36de-4626-af60-1c6256acada6.png" align="center" width="35%"></img>
    <img src="https://user-images.githubusercontent.com/56614267/197662780-97d9a7e7-1b2d-476d-9ebe-61292ce159cd.png" align="center" width="35%"></img>
    <img src="https://user-images.githubusercontent.com/56614267/197662825-a93ffd28-ed6f-4bd5-b63e-9616a56a98d0.png" align="center" width="35%"></img>
    <img src="https://user-images.githubusercontent.com/56614267/197662862-14c918b0-fac8-4649-b907-10d0308b0b7b.png" align="center" width="35%"></img>
