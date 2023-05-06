@@ -1,3 +1,9 @@
+# UTILITY SCRIPT: BackBufferCopy auto-resizer
+# 
+# DESC.: Attatch this script to a BackBufferCopy to make it resize
+# to the screen's resolution automatically. Useful for making
+# Post-Processing effects work on multiple resolutions.
+
 extends BackBufferCopy
 
 export var auto_update_visibility :bool = true

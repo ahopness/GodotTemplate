@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Object",
 "class": "VersionDescriber",
 "language": "GDScript",
-"path": "res://utils/utilVersionDescriber.gd"
+"path": "res://utils/util_version_describer.gd"
 } ]
 _global_script_class_icons={
 "VersionDescriber": ""
@@ -22,15 +22,14 @@ _global_script_class_icons={
 
 config/name="GodotTemplate"
 run/main_scene="res://scenes/startup.tscn"
-boot_splash/image="res://boot.png"
-boot_splash/use_filter=false
+boot_splash/show_image=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 config/version="0.1a"
 
 [audio]
 
-default_bus_layout="res://manager/busMain.tres"
+default_bus_layout="res://manager/bus_main.tres"
 
 [autoload]
 
@@ -43,11 +42,12 @@ window/size/height=300
 window/size/test_width=1024
 window/size/test_height=600
 window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/custom="res://themes/th_main.tres"
 
 [importer_defaults]
 
@@ -60,6 +60,7 @@ texture={
 debug={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":39,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 pause_game={
@@ -73,6 +74,14 @@ toggle_fullscreen={
  ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[logging]
+
+file_logging/enable_file_logging.release=true
+
 [physics]
 
 common/enable_pause_aware_picking=true
@@ -82,5 +91,11 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0, 0, 0, 1 )
-environment/default_environment="res://manager/envMain.tres"
+quality/shadows/filter_mode=0
+quality/shading/force_vertex_shading.mobile=false
+quality/shading/force_lambert_over_burley.mobile=false
+quality/shading/force_blinn_over_ggx.mobile=false
+gles2/compatibility/disable_half_float=true
+gles2/compatibility/enable_high_float.Android=true
+quality/lightmapping/use_bicubic_sampling.mobile=true
+quality/depth/hdr.mobile=true

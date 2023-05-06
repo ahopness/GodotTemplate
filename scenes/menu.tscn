@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://themes/thMenu.tres" type="Theme" id=1]
+[ext_resource path="res://themes/th_main.tres" type="Theme" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://scenes/menu/scrMenu.gd" type="Script" id=3]
-[ext_resource path="res://scenes/menu/sfxStart.wav" type="AudioStream" id=4]
+[ext_resource path="res://scenes/menu/scr_menu.gd" type="Script" id=3]
+[ext_resource path="res://audio/interface/interface_select.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anmInit"
@@ -151,15 +151,20 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="texLogo" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -58.5
-margin_top = -58.5
-margin_right = 58.5
-margin_bottom = 58.5
+margin_left = -42.0
+margin_top = -42.0
+margin_right = 42.0
+margin_bottom = 42.0
 texture = ExtResource( 2 )
 expand = true
 
@@ -175,7 +180,7 @@ margin_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-text = "Click here to start..."
+text = "click here to start"
 
 [node name="actions" type="VBoxContainer" parent="."]
 visible = false
@@ -194,16 +199,16 @@ custom_constants/separation = 6
 alignment = 1
 
 [node name="btnPlay" type="Button" parent="actions"]
-margin_top = 26.0
+margin_top = 12.0
 margin_right = 186.0
-margin_bottom = 34.0
+margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 text = "Play"
 
 [node name="btnSettings" type="Button" parent="actions"]
-margin_top = 40.0
+margin_top = 26.0
 margin_right = 186.0
-margin_bottom = 48.0
+margin_bottom = 34.0
 mouse_default_cursor_shape = 2
 text = "Settings"
 
@@ -214,17 +219,24 @@ margin_bottom = 48.0
 mouse_default_cursor_shape = 2
 text = "Credits"
 
-[node name="btnMore" type="Button" parent="actions"]
-margin_top = 40.0
+[node name="btnReadme" type="Button" parent="actions"]
+margin_top = 54.0
 margin_right = 186.0
-margin_bottom = 48.0
+margin_bottom = 62.0
+mouse_default_cursor_shape = 2
+text = "Open 'README.txt'"
+
+[node name="btnMore" type="Button" parent="actions"]
+margin_top = 54.0
+margin_right = 186.0
+margin_bottom = 62.0
 mouse_default_cursor_shape = 2
 text = "More Games"
 
 [node name="btnExit" type="Button" parent="actions"]
-margin_top = 54.0
+margin_top = 68.0
 margin_right = 186.0
-margin_bottom = 62.0
+margin_bottom = 76.0
 mouse_default_cursor_shape = 2
 text = "Exit to OS"
 
@@ -235,7 +247,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -81.0
+margin_left = -84.0
 margin_top = -8.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -252,16 +264,16 @@ anchor_bottom = 1.0
 [node name="crBG" type="ColorRect" parent="credits"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0.5 )
 
 [node name="centercon" type="CenterContainer" parent="credits"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="vbcon" type="VBoxContainer" parent="credits/centercon"]
-margin_left = 208.0
+margin_left = 207.0
 margin_top = 130.0
-margin_right = 303.0
+margin_right = 305.0
 margin_bottom = 169.0
 
 [node name="txt" type="Label" parent="credits/centercon/vbcon"]
@@ -288,16 +300,23 @@ autoplay = "anmInit"
 anims/anmInit = SubResource( 1 )
 anims/anmStart = SubResource( 2 )
 
-[node name="sfxStart" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-
 [node name="sfxClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Sfx"
 
 [connection signal="pressed" from="btnStart" to="." method="_on_btnStart_pressed"]
+[connection signal="pressed" from="btnStart" to="sfxClick" method="play"]
 [connection signal="pressed" from="actions/btnPlay" to="." method="_on_btnPlay_pressed"]
+[connection signal="pressed" from="actions/btnPlay" to="sfxClick" method="play"]
 [connection signal="pressed" from="actions/btnSettings" to="." method="_on_btnSettings_pressed"]
+[connection signal="pressed" from="actions/btnSettings" to="sfxClick" method="play"]
 [connection signal="pressed" from="actions/btnCredits" to="." method="_on_btnCredits_pressed"]
+[connection signal="pressed" from="actions/btnCredits" to="sfxClick" method="play"]
+[connection signal="pressed" from="actions/btnReadme" to="." method="_on_btnReadme_pressed"]
+[connection signal="pressed" from="actions/btnReadme" to="sfxClick" method="play"]
 [connection signal="pressed" from="actions/btnMore" to="." method="_on_btnMore_pressed"]
+[connection signal="pressed" from="actions/btnMore" to="sfxClick" method="play"]
 [connection signal="pressed" from="actions/btnExit" to="." method="_on_btnExit_pressed"]
+[connection signal="pressed" from="actions/btnExit" to="sfxClick" method="play"]
 [connection signal="pressed" from="credits/centercon/vbcon/btnCreditsBack" to="." method="_on_btnCreditsBack_pressed"]
-[connection signal="animation_finished" from="anm" to="." method="_on_anm_animation_finished"]
+[connection signal="pressed" from="credits/centercon/vbcon/btnCreditsBack" to="sfxClick" method="play"]

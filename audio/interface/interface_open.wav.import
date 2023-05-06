@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/sfxStart.wav-81da5eda180c29c10abd2226998d3548.sample"
+path="res://.import/interface_open.wav-379cb6f26b509f9c76deb7b7410c3a4a.sample"
 
 [deps]
 
-source_file="res://scenes/menu/sfxStart.wav"
-dest_files=[ "res://.import/sfxStart.wav-81da5eda180c29c10abd2226998d3548.sample" ]
+source_file="res://audio/interface/interface_open.wav"
+dest_files=[ "res://.import/interface_open.wav-379cb6f26b509f9c76deb7b7410c3a4a.sample" ]
 
 [params]
 

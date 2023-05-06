@@ -1,4 +1,9 @@
-extends Node
+# UTILITY SCRIPT: Version Describer
+# 
+# DESC.: Object class used for quickly grabbing the game/app's version.
+# You can set the verison in the Project Settings (application/config/version).
+
+extends Object
 class_name VersionDescriber
 
 func game_version() -> String:

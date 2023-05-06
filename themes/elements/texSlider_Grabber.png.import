@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/texCheckBox_Checked.png-369140a32afd2fc9f533f383ace6908d.stex"
+path="res://.import/texSlider_Grabber.png-2203d710dd7a1bc51047568cccec518e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://themes/menu/texCheckBox_Checked.png"
-dest_files=[ "res://.import/texCheckBox_Checked.png-369140a32afd2fc9f533f383ace6908d.stex" ]
+source_file="res://themes/elements/texSlider_Grabber.png"
+dest_files=[ "res://.import/texSlider_Grabber.png-2203d710dd7a1bc51047568cccec518e.stex" ]
 
 [params]
 

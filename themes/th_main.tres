@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=11 format=2]
+
+[ext_resource path="res://themes/common/dfont_PrintChar21.tres" type="DynamicFont" id=1]
+[ext_resource path="res://themes/elements/texCheckBox_Checked.png" type="Texture" id=2]
+[ext_resource path="res://themes/elements/texCheckBox_Unchecked.png" type="Texture" id=3]
+[ext_resource path="res://themes/elements/texSlider_Grabber_Highlighted.png" type="Texture" id=4]
+[ext_resource path="res://themes/elements/texSlider_Grabber.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.780392, 0.780392, 0.780392, 1 )
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.45098, 0.529412, 0.513726, 1 )
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[resource]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 0.752941, 0.756863, 0.764706, 1 )
+Button/colors/font_color_disabled = Color( 0.2, 0.188235, 0.172549, 1 )
+Button/colors/font_color_focus = Color( 0.752941, 0.756863, 0.764706, 1 )
+Button/colors/font_color_hover = Color( 0.52549, 0.545098, 0.654902, 1 )
+Button/colors/font_color_pressed = Color( 0.423529, 0.352941, 0.572549, 1 )
+Button/styles/disabled = SubResource( 1 )
+Button/styles/focus = SubResource( 1 )
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 1 )
+CheckBox/constants/check_vadjust = 4
+CheckBox/constants/hseparation = 0
+CheckBox/icons/checked = ExtResource( 2 )
+CheckBox/icons/unchecked = ExtResource( 3 )
+HSeparator/styles/separator = SubResource( 2 )
+HSlider/icons/grabber = ExtResource( 5 )
+HSlider/icons/grabber_highlight = ExtResource( 4 )
+HSlider/styles/grabber_area = SubResource( 4 )
+HSlider/styles/grabber_area_highlight = SubResource( 4 )
+HSlider/styles/slider = SubResource( 5 )
+Label/colors/font_color = Color( 0.752941, 0.756863, 0.764706, 1 )
+VSeparator/styles/separator = SubResource( 3 )
