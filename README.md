@@ -1,15 +1,15 @@
 <div align="center">
-    <p align="center"> <i> 🖤 𝙂𝙤𝙙𝙤𝙩 𝙏𝙚𝙢𝙥𝙡𝙖𝙩𝙚 🖤 </i> </p>
-    <p align="center"> <i> 𝚌𝚘𝚘𝚕 𝚊𝚗𝚍 𝚜𝚒𝚖𝚙𝚕𝚎 𝚝𝚎𝚖𝚙𝚕𝚊𝚝𝚎 𝚙𝚛𝚘𝚓𝚎𝚌𝚝 𝚏𝚘𝚛 𝙶𝚘𝚍𝚘𝚝 </i> </p>
-    <img src="https://user-images.githubusercontent.com/56614267/197660909-7d54ecbe-a21f-4d57-836f-37b2b1b450af.png" alt="Logo" align="right" width="40%"></img>
-    <img src="https://img.shields.io/badge/license-CC0-404040?style=flat-square" align="center"></img>
-    <img src="https://img.shields.io/github/stars/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
-    <img src="https://img.shields.io/github/forks/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
-    <img src="https://img.shields.io/badge/version-2.0-404040?style=flat-square" align="center"></img>
-    <img src="https://img.shields.io/github/repo-size/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
-    <img src="https://img.shields.io/github/last-commit/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
-    <img src="https://img.shields.io/badge/Twitter-Ahopness-404040?style=flat-square" align="center"></img>
-    <hr>
+	<p align="center"> <i> 🖤 𝙂𝙤𝙙𝙤𝙩 𝙏𝙚𝙢𝙥𝙡𝙖𝙩𝙚 (for godot 4.x) 🖤 </i> </p>
+	<p align="center"> <i> 𝚌𝚘𝚘𝚕 𝚊𝚗𝚍 𝚜𝚒𝚖𝚙𝚕𝚎 𝚝𝚎𝚖𝚙𝚕𝚊𝚝𝚎 𝚙𝚛𝚘𝚓𝚎𝚌𝚝 𝚏𝚘𝚛 𝙶𝚘𝚍𝚘𝚝 </i> </p>
+	<img src="https://user-images.githubusercontent.com/56614267/197660909-7d54ecbe-a21f-4d57-836f-37b2b1b450af.png" alt="Logo" align="right" width="40%"></img>
+	<img src="https://img.shields.io/badge/license-CC0-404040?style=flat-square" align="center"></img>
+	<img src="https://img.shields.io/github/stars/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
+	<img src="https://img.shields.io/github/forks/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
+	<img src="https://img.shields.io/badge/version-2.0-404040?style=flat-square" align="center"></img>
+	<img src="https://img.shields.io/github/repo-size/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
+	<img src="https://img.shields.io/github/last-commit/Ahopness/GodotTemplate?color=404040&style=flat-square" align="center"></img>
+	<img src="https://img.shields.io/badge/Twitter-Ahopness-404040?style=flat-square" align="center"></img>
+	<hr>
 </div>
 
 ## Sumary
@@ -25,10 +25,8 @@
 
 It Features:
 - Menu scene
-- Startup Scene (WITH SHADER COMPILER!!)
 - Pause menu
 - Debug inpector (press apostrophe)
-- Post-Processing structure
 - Manager with scene transitioning built-in
 - Settings tab using the ConfigFile class for saving
 
@@ -50,3 +48,4 @@ Everything here is free to do whatever the hell you want with it, via *Creative 
 ## Credits
 
 Made by : **Ahopness ([@ahopness](http://twitter.com/ahopness "My Twitter Account"))**
+

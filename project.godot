@@ -6,96 +6,76 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Object",
-"class": "VersionDescriber",
-"language": "GDScript",
-"path": "res://utils/util_version_describer.gd"
-} ]
-_global_script_class_icons={
-"VersionDescriber": ""
-}
+config_version=5
 
 [application]
 
 config/name="GodotTemplate"
-run/main_scene="res://scenes/startup.tscn"
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.1", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
+boot_splash/use_filter=false
 config/icon="res://icon.png"
 config/version="0.1a"
 
 [audio]
 
-default_bus_layout="res://manager/bus_main.tres"
+buses/default_bus_layout="res://manager/bus_main.tres"
 
 [autoload]
 
-Manager="*res://manager/manager.tscn"
+Manager="*res://manager/auto_manager.tscn"
 
 [display]
 
-window/size/width=512
-window/size/height=300
-window/size/test_width=1024
-window/size/test_height=600
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
 
 [gui]
 
-common/drop_mouse_on_gui_input_disabled=true
 theme/custom="res://themes/th_main.tres"
-
-[importer_defaults]
-
-texture={
-"flags/filter": false
-}
 
 [input]
 
-debug={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":39,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
 pause_game={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 toggle_fullscreen={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777254,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+debug={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":167,"key_label":0,"unicode":39,"echo":false,"script":null)
+]
 }
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
 
-[logging]
-
-file_logging/enable_file_logging.release=true
-
-[physics]
-
-common/enable_pause_aware_picking=true
-
 [rendering]
 
-quality/driver/driver_name="GLES2"
-vram_compression/import_etc=true
-vram_compression/import_etc2=false
-quality/shadows/filter_mode=0
-quality/shading/force_vertex_shading.mobile=false
-quality/shading/force_lambert_over_burley.mobile=false
-quality/shading/force_blinn_over_ggx.mobile=false
-gles2/compatibility/disable_half_float=true
-gles2/compatibility/enable_high_float.Android=true
-quality/lightmapping/use_bicubic_sampling.mobile=true
-quality/depth/hdr.mobile=true
+renderer/rendering_method="gl_compatibility"
+lights_and_shadows/directional_shadow/size=2048
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=1
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=1
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=1
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality.mobile=1
+reflections/sky_reflections/texture_array_reflections=false
+reflections/sky_reflections/ggx_samples.mobile=32
+reflections/reflection_atlas/reflection_size.mobile=256
+shading/overrides/force_vertex_shading.mobile=false
+shading/overrides/force_lambert_over_burley.mobile=false
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/anisotropic_filtering_level=0
+environment/glow/upscale_mode.mobile=1
+lights_and_shadows/positional_shadow/atlas_size=2048

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://m02au4ci8m4j"]
+
+[ext_resource type="Script" path="res://objects/selection/scr_SelectionHighlight.gd" id="1_cnmk6"]
+
+[sub_resource type="Gradient" id="Gradient_ldkbj"]
+colors = PackedColorArray(0.5, 0.5, 0.5, 1, 0.47451, 0.384314, 0.364706, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dnm3e"]
+gradient = SubResource("Gradient_ldkbj")
+width = 115
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v57is"]
+gradient = SubResource("Gradient_ldkbj")
+width = 72
+
+[sub_resource type="Gradient" id="Gradient_hnyx0"]
+colors = PackedColorArray(0.47451, 0.384314, 0.364706, 0, 0.5, 0.5, 0.5, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_38ygi"]
+gradient = SubResource("Gradient_hnyx0")
+width = 72
+
+[node name="oSelectionHighlight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cnmk6")
+
+[node name="texGradientTopLeft" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_right = 113.0
+offset_bottom = 12.0
+texture = SubResource("GradientTexture1D_dnm3e")
+
+[node name="texGradientCenter" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_top = -6.0
+offset_right = 72.0
+offset_bottom = 6.0
+texture = SubResource("GradientTexture1D_v57is")
+
+[node name="texOtherSide" type="TextureRect" parent="texGradientCenter"]
+layout_mode = 1
+offset_left = -72.0
+offset_bottom = 12.0
+texture = SubResource("GradientTexture1D_38ygi")

@@ -1,0 +1,386 @@
+[gd_scene load_steps=10 format=3 uid="uid://btp80cux5ruut"]
+
+[ext_resource type="Script" path="res://manager/scr_manager.gd" id="1_6vki0"]
+[ext_resource type="PackedScene" uid="uid://m02au4ci8m4j" path="res://objects/selection/o_SelectionHighlight.tscn" id="2_mi10r"]
+[ext_resource type="Script" path="res://utils/util_FocusViaMouseHover.gd" id="3_b25eq"]
+[ext_resource type="FontFile" uid="uid://wg5ksy5msi3q" path="res://themes/common/font_Scientifica.ttf" id="4_yldgt"]
+
+[sub_resource type="Gradient" id="Gradient_kv4em"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_04mo5"]
+gradient = SubResource("Gradient_kv4em")
+
+[sub_resource type="Animation" id="Animation_t6x7d"]
+resource_name = "cut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cr:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cr:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_scyir"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cr:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cr:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rimv7"]
+_data = {
+"cut": SubResource("Animation_t6x7d"),
+"fade": SubResource("Animation_scyir")
+}
+
+[node name="manager" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6vki0")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 7
+visible = false
+
+[node name="filter" type="Control" parent="PauseMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="PauseMenu"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 320.0
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_04mo5")
+
+[node name="oSelectionHighlight" parent="PauseMenu" instance=ExtResource("2_mi10r")]
+active = false
+
+[node name="vbconControls" type="HBoxContainer" parent="PauseMenu"]
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="vsep" type="VSeparator" parent="PauseMenu/vbconControls"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="vbconActions" type="VBoxContainer" parent="PauseMenu/vbconControls"]
+layout_mode = 2
+
+[node name="btnResume" type="Button" parent="PauseMenu/vbconControls/vbconActions"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../btnExitOS")
+mouse_default_cursor_shape = 2
+text = "Resume"
+alignment = 0
+script = ExtResource("3_b25eq")
+
+[node name="btnOpenSettings" type="Button" parent="PauseMenu/vbconControls/vbconActions"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Open Settings"
+alignment = 0
+script = ExtResource("3_b25eq")
+
+[node name="btnExitMenu" type="Button" parent="PauseMenu/vbconControls/vbconActions"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Exit to Menu"
+alignment = 0
+script = ExtResource("3_b25eq")
+
+[node name="btnExitOS" type="Button" parent="PauseMenu/vbconControls/vbconActions"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../btnResume")
+mouse_default_cursor_shape = 2
+text = "Exit to OS"
+alignment = 0
+script = ExtResource("3_b25eq")
+
+[node name="vbconConfirmation" type="HBoxContainer" parent="PauseMenu"]
+visible = false
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="vsep" type="VSeparator" parent="PauseMenu/vbconConfirmation"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="vbconActions" type="VBoxContainer" parent="PauseMenu/vbconConfirmation"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="PauseMenu/vbconConfirmation/vbconActions"]
+layout_mode = 2
+text = "Are you sure you want to exit?
+all your progress will be lost."
+
+[node name="hsep" type="HSeparator" parent="PauseMenu/vbconConfirmation/vbconActions"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="btnProceed" type="Button" parent="PauseMenu/vbconConfirmation/vbconActions"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../btnCancel")
+mouse_default_cursor_shape = 2
+text = "Proceed"
+alignment = 0
+script = ExtResource("3_b25eq")
+
+[node name="btnCancel" type="Button" parent="PauseMenu/vbconConfirmation/vbconActions"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../btnProceed")
+mouse_default_cursor_shape = 2
+text = "Cancel"
+alignment = 0
+script = ExtResource("3_b25eq")
+
+[node name="SettingsMenu" type="CanvasLayer" parent="."]
+layer = 8
+visible = false
+
+[node name="filter" type="Control" parent="SettingsMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="SettingsMenu"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 320.0
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_04mo5")
+
+[node name="oSelectionHighlight" parent="SettingsMenu" instance=ExtResource("2_mi10r")]
+active = false
+
+[node name="hbcon" type="HBoxContainer" parent="SettingsMenu"]
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="vsep" type="VSeparator" parent="SettingsMenu/hbcon"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="vbcon" type="VBoxContainer" parent="SettingsMenu/hbcon"]
+layout_mode = 2
+
+[node name="lang" type="HBoxContainer" parent="SettingsMenu/hbcon/vbcon"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="SettingsMenu/hbcon/vbcon/lang"]
+layout_mode = 2
+text = "Language:"
+
+[node name="btnEN" type="Button" parent="SettingsMenu/hbcon/vbcon/lang"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "English"
+
+[node name="vsync" type="HBoxContainer" parent="SettingsMenu/hbcon/vbcon"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="SettingsMenu/hbcon/vbcon/vsync"]
+layout_mode = 2
+text = "Vsync:"
+
+[node name="chkbtnVsync" type="CheckBox" parent="SettingsMenu/hbcon/vbcon/vsync"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="fullscr" type="HBoxContainer" parent="SettingsMenu/hbcon/vbcon"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="SettingsMenu/hbcon/vbcon/fullscr"]
+layout_mode = 2
+text = "Fullscreen:"
+
+[node name="chkbtnFullscr" type="CheckBox" parent="SettingsMenu/hbcon/vbcon/fullscr"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="gfx" type="HBoxContainer" parent="SettingsMenu/hbcon/vbcon"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="SettingsMenu/hbcon/vbcon/gfx"]
+layout_mode = 2
+text = "Graphics Mode:"
+
+[node name="btnGFXhigh" type="Button" parent="SettingsMenu/hbcon/vbcon/gfx"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../btnGFXlow")
+mouse_default_cursor_shape = 2
+text = "Qaulity"
+
+[node name="btnGFXlow" type="Button" parent="SettingsMenu/hbcon/vbcon/gfx"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../btnGFXhigh")
+mouse_default_cursor_shape = 2
+text = "Performance"
+
+[node name="sfx" type="HBoxContainer" parent="SettingsMenu/hbcon/vbcon"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="SettingsMenu/hbcon/vbcon/sfx"]
+layout_mode = 2
+text = "Sfx Volume:"
+
+[node name="ccon" type="CenterContainer" parent="SettingsMenu/hbcon/vbcon/sfx"]
+layout_mode = 2
+
+[node name="txtSfxSLD" type="Label" parent="SettingsMenu/hbcon/vbcon/sfx/ccon"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.3)
+text = "1.0"
+
+[node name="sldSfx" type="HSlider" parent="SettingsMenu/hbcon/vbcon/sfx/ccon"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="mus" type="HBoxContainer" parent="SettingsMenu/hbcon/vbcon"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="SettingsMenu/hbcon/vbcon/mus"]
+layout_mode = 2
+text = "Music volume:"
+
+[node name="ccon" type="CenterContainer" parent="SettingsMenu/hbcon/vbcon/mus"]
+layout_mode = 2
+
+[node name="txtMusSLD" type="Label" parent="SettingsMenu/hbcon/vbcon/mus/ccon"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.3)
+text = "1.0"
+
+[node name="sldMus" type="HSlider" parent="SettingsMenu/hbcon/vbcon/mus/ccon"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="actions" type="HBoxContainer" parent="SettingsMenu/hbcon/vbcon"]
+layout_mode = 2
+
+[node name="btnCloseSettings" type="Button" parent="SettingsMenu/hbcon/vbcon/actions"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Go Back"
+script = ExtResource("3_b25eq")
+
+[node name="Transitions" type="CanvasLayer" parent="."]
+layer = 9
+
+[node name="cr" type="ColorRect" parent="Transitions"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="anm" type="AnimationPlayer" parent="Transitions"]
+libraries = {
+"": SubResource("AnimationLibrary_rimv7")
+}
+
+[node name="Debug" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="txtInfo" type="Label" parent="Debug"]
+visible = false
+texture_filter = 1
+offset_right = 28.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.431373, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_yldgt")
+text = "0x0000"
+
+[connection signal="pressed" from="PauseMenu/vbconControls/vbconActions/btnResume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/vbconControls/vbconActions/btnOpenSettings" to="." method="_on_btn_open_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/vbconControls/vbconActions/btnExitMenu" to="." method="_on_btn_exit_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/vbconControls/vbconActions/btnExitOS" to="." method="_on_btn_exit_os_pressed"]
+[connection signal="pressed" from="PauseMenu/vbconConfirmation/vbconActions/btnProceed" to="." method="_on_btn_proceed_pressed"]
+[connection signal="pressed" from="PauseMenu/vbconConfirmation/vbconActions/btnCancel" to="." method="_on_btn_cancel_pressed"]
+[connection signal="pressed" from="SettingsMenu/hbcon/vbcon/lang/btnEN" to="." method="_on_btn_en_pressed"]
+[connection signal="toggled" from="SettingsMenu/hbcon/vbcon/vsync/chkbtnVsync" to="." method="_on_chkbtn_vsync_toggled"]
+[connection signal="toggled" from="SettingsMenu/hbcon/vbcon/fullscr/chkbtnFullscr" to="." method="_on_chkbtn_fullscr_toggled"]
+[connection signal="pressed" from="SettingsMenu/hbcon/vbcon/gfx/btnGFXhigh" to="." method="_on_btn_gf_xhigh_pressed"]
+[connection signal="pressed" from="SettingsMenu/hbcon/vbcon/gfx/btnGFXlow" to="." method="_on_btn_gf_xlow_pressed"]
+[connection signal="value_changed" from="SettingsMenu/hbcon/vbcon/sfx/ccon/sldSfx" to="." method="_on_sld_sfx_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/hbcon/vbcon/mus/ccon/sldMus" to="." method="_on_sld_mus_value_changed"]
+[connection signal="pressed" from="SettingsMenu/hbcon/vbcon/actions/btnCloseSettings" to="." method="close_settings_menu"]
